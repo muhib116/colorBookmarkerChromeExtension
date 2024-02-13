@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Color Bookmarker",
+    "description": "Color Bookmarker is your essential tool for organizing and managing colors while browsing the web. This intuitive Chrome extension allows you to capture and save colors from any webpage with ease.",
+    "version": "1.0",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icons/icon128.png"
+    },
+    "permissions": ["scripting", "activeTab", "storage"],
+    "icons": {
+        "16":"icons/icon16.png",
+        "48":"icons/icon48.png",
+        "128":"icons/icon128.png"
+    }
+}
