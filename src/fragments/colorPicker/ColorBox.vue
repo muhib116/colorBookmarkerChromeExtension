@@ -5,7 +5,7 @@
     >
         <span
             class="absolute -ml-1 inset-0 bg-green-600 text-white rounded z-10 duration-200 pointer-events-none"
-            :class="isCopied ? 'opacity-100 animate-bounce' : 'opacity-0'"
+            :class="isCopied ? 'opacity-100 animate-ping' : 'opacity-0'"
         >
             Copied
         </span>
@@ -23,7 +23,10 @@
         </label>
         <span 
             title="Click to copy"
-            @click="copyColorToClipBoard(color, handleCopyStatus)"
+            @click="() => {
+                copyColorToClipBoard(color, handleCopyStatus)
+                handleCopyStatus()
+            }"
         >
             {{ color }}
         </span>
@@ -39,13 +42,20 @@
 </template>
 
 <script setup>
-    import { inject } from 'vue'
-    import { useColorPicker } from '@/useColorPicker'
+    import { inject, ref } from 'vue'
 
     const props = defineProps({
         color: String,
         index: Number
     })
 
-    const { changeColor, deleteSingleColor, copyColorToClipBoard, isCopied } = inject('useColorPicker')
+    const isCopied = ref(false)
+    const handleCopyStatus = () => {
+        isCopied.value = true
+        setTimeout(() => {
+            isCopied.value = false
+        }, 300)
+    }
+
+    const { changeColor, deleteSingleColor, copyColorToClipBoard } = inject('useColorPicker')
 </script>
