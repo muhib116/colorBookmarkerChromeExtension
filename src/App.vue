@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[300px] bg-gray-800 text-white/70">
+  <div class="w-[300px] text-gray-800 bg-white dark:bg-gray-800 dark:text-white/70">
     <ColorPicker />
   </div>
 </template>
